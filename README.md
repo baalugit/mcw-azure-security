@@ -1,5 +1,5 @@
 # Contoso Insurance Azure Security Template
-# # Part of the Microsoft Cloud Workshops
+## Part of the Microsoft Cloud Workshops
 
 [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
 
