@@ -1,5 +1,8 @@
-# Contoso Insurance Azure Security Template
+# Contoso Insurance Azure Security
+## Part of the Microsoft Cloud Workshops
 
-# Part of the Microsoft Cloud Workshops
+[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
 
-This GitHub repo exists to deploy the web application that is part of the Azure Security Hands-on Lab. We are leveraging a capability of Azure called ARM templates which allow you to specifiy what your solution looks like from a deployment perspetive simply by using JSON code. 
+This GitHub is the supporting artifacts for the Microsoft Cloud Workshop for Azure Security.  It contains the Azure Resource Template, database and web application.  It also includes various scripts that help automate various tasks in the labs.
+
+[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
