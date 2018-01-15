@@ -270,7 +270,7 @@ function TestPort($computers, $port)
 function TestSpecificPorts($computers, $ports)
 {
     foreach($port in $ports)
-    {
+    {		
         write-host "Testing port $port on $computers";
         Test-Port -computer $computers -port $port        
     }    
@@ -286,6 +286,48 @@ function TestPortRange($computers, $startport, $endport)
         $startPort++;
     }    
 }
+
+function InstallNotepadPP()
+{
+	#check for executables...
+	$item = get-item "C:\Program Files (x86)\Notepad++\notepad++.exe" -ea silentlycontinue;
+	
+	if (!$item)
+	{
+		$downloadNotePad = "";
+		
+		#download it...		
+		Start-BitsTransfer -Source $DownloadNotePad -DisplayName Notepad -Destination "\\location\npp.exe"
+		
+		#install it...
+		$productPath = "";
+				
+		$productExec = "npp.6.9.2.Installer.exe"
+	
+		$argList = "/s"
+		start-process "$productPath\$productExec" -ArgumentList $argList -wait
+	}
+}
+
+function SetupHosts()
+{
+	$path = "C:\Windows\System32\drivers\etc\hosts";
+	$content = get-content $path -raw
+		
+	if (!$content.contains("web-1"))
+	{
+		add-content $path "10.2.0.1`tweb-1";
+	}
+	
+	if (!$content.contains("db-1"))
+	{
+		add-content $path "10.1.0.1`tdb-1";
+	}
+}
+
+InstallNotepadPP;
+
+SetupHosts;
 
 $computers = @("web-1","db-1");
 

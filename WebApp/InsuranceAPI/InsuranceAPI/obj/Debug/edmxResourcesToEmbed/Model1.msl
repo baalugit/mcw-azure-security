@@ -39,7 +39,6 @@
           <ScalarProperty Name="SSN" ColumnName="SSN" />
           <ScalarProperty Name="Gender" ColumnName="Gender" />
           <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="Data" ColumnName="Data" />
           <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
           <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
         </MappingFragment>

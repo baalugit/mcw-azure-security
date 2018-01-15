@@ -3,4 +3,3 @@ go
 
 grant view any column encryption key definition to agent
 go
-

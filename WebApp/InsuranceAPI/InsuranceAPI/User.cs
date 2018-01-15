@@ -35,7 +35,6 @@ namespace InsuranceAPI
         public string SSN { get; set; }
         public string Gender { get; set; }
         public string Email { get; set; }
-        public string Data { get; set; }
         public Nullable<System.DateTime> ModifyDate { get; set; }
         public Nullable<System.DateTime> CreateDate { get; set; }
     
