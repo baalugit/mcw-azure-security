@@ -294,17 +294,17 @@ function InstallNotepadPP()
 	
 	if (!$item)
 	{
-		$downloadNotePad = "";
+		$downloadNotePad = "https://notepad-plus-plus.org/repository/7.x/7.5.4/npp.7.5.4.Installer.exe";
+
+        mkdir c:\temp
 		
 		#download it...		
-		Start-BitsTransfer -Source $DownloadNotePad -DisplayName Notepad -Destination "\\location\npp.exe"
+		Start-BitsTransfer -Source $DownloadNotePad -DisplayName Notepad -Destination "c:\temp\npp.exe"
 		
 		#install it...
-		$productPath = "";
-				
-		$productExec = "npp.6.9.2.Installer.exe"
-	
-		$argList = "/s"
+		$productPath = "c:\temp";				
+		$productExec = "npp.exe"	
+		$argList = "/S"
 		start-process "$productPath\$productExec" -ArgumentList $argList -wait
 	}
 }
@@ -316,12 +316,12 @@ function SetupHosts()
 		
 	if (!$content.contains("web-1"))
 	{
-		add-content $path "10.2.0.1`tweb-1";
+		add-content $path "10.2.0.4`tweb-1";
 	}
 	
 	if (!$content.contains("db-1"))
 	{
-		add-content $path "10.1.0.1`tdb-1";
+		add-content $path "10.1.0.4`tdb-1";
 	}
 }
 
@@ -337,4 +337,6 @@ TestPort $computers 1433;
 
 TestPort $computers 80;
 
-TestPortRange $computers 80 443;
+TestPort $computers 443;
+
+#TestPortRange $computers 80 443;

@@ -560,6 +560,23 @@
                 "resourceGuid": "9d7fc98e-e718-4173-90ce-3049baa3f86c",
                 "securityRules": [],
                 "defaultSecurityRules": [
+					{
+                        "name": "RDP",
+                        "etag": "W/\"8567f93c-619a-4bde-98b5-4c8254039562\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "TCP",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "3389",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 1004,
+                            "direction": "Inbound",
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
                     {
                         "name": "AllowVnetInBound",
                         "etag": "W/\"7db38e1c-734b-4ea9-b3c7-39c34aa0d0a3\"",
@@ -1116,7 +1133,28 @@
                 "[resourceId('Microsoft.Network/virtualNetworks', 'webVNet')]",
                 "[resourceId('Microsoft.Network/virtualNetworks', 'mainVNet')]"
             ]
-        }        
-
+        },
+		{
+		  "type": "Microsoft.Compute/virtualMachines/extensions",
+		  "name": "[concat('web-1','/', 'dscExtension')]",
+		  "apiVersion": "2015-05-01-preview",
+		  "location": "[resourceGroup().location]",
+		  "dependsOn": [
+			"[concat('Microsoft.Compute/virtualMachines/', 'web-1')]"
+		  ],
+		  "properties": {
+			"publisher": "Microsoft.Powershell",
+			"type": "DSC",
+			"typeHandlerVersion": "2.19",
+			"autoUpgradeMinorVersion": true,
+			"settings": {
+			  "ModulesUrl": "https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-iis-server-windows-vm/ContosoWebsite.ps1.zip?raw=true",
+			  "ConfigurationFunction": "Install_IIS.ps1\InstallIIS",
+			  "Properties": {
+				"MachineName": "web-1"
+			  }
+			},
+			"protectedSettings": null
+		  }
         ]
 	}
