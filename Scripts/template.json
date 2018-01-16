@@ -17,9 +17,9 @@
         "databaseName": {
             "defaultValue": "Insurance",
             "type": "String"
-        }
+        },
 		"storageAccountName": {
-            "defaultValue": "azurecloudsecurity-abc",
+            "defaultValue": "azuresecurityabc",
             "type": "String"
         }        
     },
@@ -247,7 +247,7 @@
                         "name": "db-1",
                         "createOption": "FromImage",
                         "vhd": {
-                            "uri": "[concat('https', '://', '[parameters('storageAccountName')]', '.blob.core.windows.net', concat('/vhds/', 'db-1','20171218184106.vhd'))]"
+                            "uri": "[concat('https', '://', parameters('storageAccountName'), '.blob.core.windows.net', concat('/vhds/', 'db-1','20171218184106.vhd'))]"
                         },
                         "caching": "ReadWrite",
                         "diskSizeGB": 127
@@ -266,7 +266,7 @@
                 }
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', '[parameters('storageAccountName')]')]"
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
             ]
         },     
         {
@@ -302,7 +302,7 @@
                         "name": "paw-1",
                         "createOption": "FromImage",
                         "vhd": {
-                            "uri": "[concat('https', '://', '[parameters('storageAccountName')]', '.blob.core.windows.net', concat('/vhds/', 'paw-1','20171218184106.vhd'))]"
+                            "uri": "[concat('https', '://', parameters('storageAccountName'), '.blob.core.windows.net', concat('/vhds/', 'paw-1','20171218184106.vhd'))]"
                         },
                         "caching": "ReadWrite",
                         "diskSizeGB": 127
@@ -319,12 +319,12 @@
                 "diagnosticsProfile": {
                     "bootDiagnostics": {
                         "enabled": true,
-                        "storageUri": "[concat('https', '://', '[parameters('storageAccountName')]', '.blob.core.windows.net', '/')]"
+                        "storageUri": "[concat('https', '://', parameters('storageAccountName'), '.blob.core.windows.net', '/')]"
                     }
                 }
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', '[parameters('storageAccountName')]')]"                
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
             ]
         },
         {
@@ -360,7 +360,7 @@
                         "name": "web-1",
                         "createOption": "FromImage",
                         "vhd": {
-                            "uri": "[concat('https', '://', '[parameters('storageAccountName')]', '.blob.core.windows.net', concat('/vhds/', 'web-1','20171218184106.vhd'))]"
+                            "uri": "[concat('https', '://', parameters('storageAccountName'), '.blob.core.windows.net', concat('/vhds/', 'web-1','20171218184106.vhd'))]"
                         },
                         "caching": "ReadWrite",
                         "diskSizeGB": 127
@@ -379,7 +379,7 @@
                 }
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', '[parameters('storageAccountName')]')]"                
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
             ]
         },
         {
