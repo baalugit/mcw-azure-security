@@ -234,8 +234,8 @@
                 "storageProfile": {
                     "imageReference": {
                         "publisher": "MicrosoftWindowsServer",
-                        "offer": "WindowsServer",
-                        "sku": "2016-Datacenter",
+                        "offer": "SQL2016-WS2016",
+                        "sku": "Enterprise",
                         "version": "latest"
                     },
                     "osDisk": {
@@ -1148,13 +1148,14 @@
 			"typeHandlerVersion": "2.19",
 			"autoUpgradeMinorVersion": true,
 			"settings": {
-			  "ModulesUrl": "https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-iis-server-windows-vm/ContosoWebsite.ps1.zip?raw=true",
-			  "ConfigurationFunction": "Install_IIS.ps1\InstallIIS",
+			  "ModulesUrl": "https://github.com/givenscj/mcw-azure-security/blob/master/Scripts/Install_IIS.zip?raw=true",
+			  "ConfigurationFunction": "Install_IIS.ps1\\InstallIIS",
 			  "Properties": {
 				"MachineName": "web-1"
 			  }
 			},
 			"protectedSettings": null
 		  }
-        ]
-	}
+	  }
+	]
+}
