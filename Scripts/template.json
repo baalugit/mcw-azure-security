@@ -31,7 +31,7 @@
             "kind": "v12.0",
             "name": "[parameters('sqlservername')]",
             "apiVersion": "2015-05-01-preview",
-            "location": "centralus",
+            "location": "[resourceGroup().location]",
             "scale": null,
             "properties": {
                 "administratorLogin": "[parameters('adminUsername')]",
@@ -46,7 +46,7 @@
             "kind": "v12.0,user",
             "name": "[concat(parameters('sqlservername'), '/', 'SampleDB')]",
             "apiVersion": "2014-04-01-preview",
-            "location": "Central US",
+            "location": "[resourceGroup().location]",
             "scale": null,
             "properties": {
                 "databaseId": "cb0f2743-17a4-4b2e-9f91-8b274bfedf72",
@@ -78,7 +78,7 @@
             "type": "Microsoft.Network/networkInterfaces",
             "name": "db-1-nic",
             "apiVersion": "2017-06-01",
-            "location": "centralus",
+            "location": "[resourceGroup().location]",
             "scale": null,
             "properties": {
                 "provisioningState": "Succeeded",
@@ -122,7 +122,7 @@
             "type": "Microsoft.Network/networkInterfaces",
             "name": "paw-1-nic",
             "apiVersion": "2017-06-01",
-            "location": "centralus",
+            "location": "[resourceGroup().location]",
             "scale": null,
             "properties": {
                 "provisioningState": "Succeeded",
@@ -219,7 +219,7 @@
             "type": "Microsoft.Compute/virtualMachines",
             "name": "db-1",
             "apiVersion": "2017-03-30",
-            "location": "centralus",
+            "location": "[resourceGroup().location]",
             "scale": null,
             "properties": {
                 "hardwareProfile": {
@@ -237,7 +237,7 @@
                 },
                 "storageProfile": {
                     "imageReference": {
-                        "publisher": "MicrosoftWindowsServer",
+                        "publisher": "MicrosoftSQLServer",
                         "offer": "SQL2016-WS2016",
                         "sku": "Enterprise",
                         "version": "latest"
@@ -274,7 +274,7 @@
             "type": "Microsoft.Compute/virtualMachines",
             "name": "paw-1",
             "apiVersion": "2017-03-30",
-            "location": "centralus",
+            "location": "[resourceGroup().location]",
             "scale": null,
             "properties": {
                 "hardwareProfile": {
@@ -332,7 +332,7 @@
             "type": "Microsoft.Compute/virtualMachines",
             "name": "web-1",
             "apiVersion": "2017-03-30",
-            "location": "centralus",
+            "location": "[resourceGroup().location]",
             "scale": null,
             "properties": {
                 "hardwareProfile": {
@@ -387,7 +387,7 @@
             "type": "Microsoft.KeyVault/vaults",
             "name": "CloudSecurityVault",
             "apiVersion": "2015-06-01",
-            "location": "centralus",
+            "location": "[resourceGroup().location]",
             "tags": {},
             "scale": null,
             "properties": {
@@ -395,10 +395,10 @@
                     "family": "A",
                     "name": "Standard"
                 },
-                "tenantId": "d280491c-b27a-41bf-9623-21b60cf430b3",
+                "tenantId": "[subscription().tenantId]",
                 "accessPolicies": [
                     {
-                        "tenantId": "d280491c-b27a-41bf-9623-21b60cf430b3",
+                        "tenantId": "[subscription().tenantId]",
                         "objectId": "c1c8abcf-aa1f-443b-aa47-93df8879d9b2",
                         "permissions": {
                             "keys": [
@@ -433,7 +433,7 @@
             "type": "Microsoft.Network/networkSecurityGroups",
             "name": "DbTrafficOnly",
             "apiVersion": "2017-06-01",
-            "location": "centralus",
+            "location": "[resourceGroup().location]",
             "scale": null,
             "properties": {
                 "provisioningState": "Succeeded",
@@ -557,7 +557,7 @@
             "type": "Microsoft.Network/networkSecurityGroups",
             "name": "paw-1-nsg",
             "apiVersion": "2017-06-01",
-            "location": "centralus",
+            "location": "[resourceGroup().location]",
             "scale": null,
             "properties": {
                 "provisioningState": "Succeeded",
@@ -698,7 +698,7 @@
             "type": "Microsoft.Network/networkSecurityGroups",
             "name": "WebTrafficOnly",
             "apiVersion": "2017-06-01",
-            "location": "centralus",
+            "location": "[resourceGroup().location]",
             "scale": null,
             "properties": {
                 "provisioningState": "Succeeded",
@@ -822,7 +822,7 @@
             "type": "Microsoft.Network/publicIPAddresses",
             "name": "paw-1-ip",
             "apiVersion": "2017-06-01",
-            "location": "centralus",
+            "location": "[resourceGroup().location]",
             "scale": null,
             "properties": {
                 "provisioningState": "Succeeded",
@@ -838,7 +838,7 @@
             "type": "Microsoft.Network/publicIPAddresses",
             "name": "web-1-ip",
             "apiVersion": "2017-06-01",
-            "location": "centralus",
+            "location": "[resourceGroup().location]",
             "scale": null,
             "properties": {
                 "provisioningState": "Succeeded",
@@ -854,7 +854,7 @@
             "type": "Microsoft.Network/virtualNetworks",
             "name": "dbVnet",
             "apiVersion": "2017-06-01",
-            "location": "centralus",
+            "location": "[resourceGroup().location]",
             "scale": null,
             "properties": {
                 "provisioningState": "Succeeded",
@@ -902,7 +902,7 @@
             "type": "Microsoft.Network/virtualNetworks",
             "name": "mainVNet",
             "apiVersion": "2017-06-01",
-            "location": "centralus",
+            "location": "[resourceGroup().location]",
             "scale": null,
             "properties": {
                 "provisioningState": "Succeeded",
@@ -931,7 +931,7 @@
             "type": "Microsoft.Network/virtualNetworks",
             "name": "webVNet",
             "apiVersion": "2017-06-01",
-            "location": "centralus",
+            "location": "[resourceGroup().location]",
             "scale": null,
             "properties": {
                 "provisioningState": "Succeeded",
