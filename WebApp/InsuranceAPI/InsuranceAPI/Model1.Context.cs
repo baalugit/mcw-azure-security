@@ -25,15 +25,15 @@ namespace InsuranceAPI
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Accident> Accidents { get; set; }
+        public virtual DbSet<Agent> Agents { get; set; }
         public virtual DbSet<Claim> Claims { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<Participant> Participants { get; set; }
+        public virtual DbSet<Policy> Policies { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<UserVehicle> UserVehicles { get; set; }
         public virtual DbSet<Vehicle> Vehicles { get; set; }
-        public virtual DbSet<Accident> Accidents { get; set; }
-        public virtual DbSet<Agent> Agents { get; set; }
-        public virtual DbSet<Participant> Participants { get; set; }
-        public virtual DbSet<Policy> Policies { get; set; }
         public virtual DbSet<vAgentUser> vAgentUsers { get; set; }
     }
 }

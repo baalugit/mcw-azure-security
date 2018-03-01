@@ -85,10 +85,8 @@
     <Property Name="SSN" Type="nvarchar" MaxLength="50" />
     <Property Name="Gender" Type="char" MaxLength="10" />
     <Property Name="Email" Type="nvarchar" MaxLength="50" />
-    <Property Name="Data" Type="nvarchar" MaxLength="50" />
     <Property Name="ModifyDate" Type="datetime" />
     <Property Name="CreateDate" Type="datetime" />
-    <Property Name="SSN_Encrypted" Type="varbinary" MaxLength="128" />
   </EntityType>
   <EntityType Name="UserVehicle">
     <Key>
@@ -134,7 +132,6 @@ warning 6002: The table/view 'Insurance.dbo.vAgentUser' does not have a primary 
     <Property Name="SSN" Type="nvarchar" MaxLength="50" />
     <Property Name="Gender" Type="char" MaxLength="10" />
     <Property Name="Email" Type="nvarchar" MaxLength="50" />
-    <Property Name="Data" Type="nvarchar" MaxLength="50" />
     <Property Name="ModifyDate" Type="datetime" />
     <Property Name="CreateDate" Type="datetime" />
   </EntityType>
@@ -245,7 +242,6 @@ warning 6002: The table/view 'Insurance.dbo.vAgentUser' does not have a primary 
     [vAgentUser].[SSN] AS [SSN], 
     [vAgentUser].[Gender] AS [Gender], 
     [vAgentUser].[Email] AS [Email], 
-    [vAgentUser].[Data] AS [Data], 
     [vAgentUser].[ModifyDate] AS [ModifyDate], 
     [vAgentUser].[CreateDate] AS [CreateDate]
     FROM [dbo].[vAgentUser] AS [vAgentUser]</DefiningQuery>
